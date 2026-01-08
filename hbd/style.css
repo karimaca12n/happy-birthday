@@ -1,105 +1,188 @@
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
 body {
-  background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
-  font-family: 'Segoe UI', sans-serif;
-  min-height: 100vh;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffd6e8, #fff0f6);
   overflow-x: hidden;
 }
 
+/* CARD */
 .card {
-  background: white;
-  padding: 25px;
-  border-radius: 25px;
+  max-width: 420px;
+  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(255, 105, 180, 0.25);
   text-align: center;
-  width: 95%;
-  max-width: 360px;
-  box-shadow: 0 10px 30px rgba(255,105,180,0.4);
-  z-index: 1;
+  animation: fadeIn 1.2s ease;
 }
 
-h1 { color: #ff69b4; margin-bottom: 5px; }
-h2 { color: #ff1493; margin-top: 0; }
+h1 {
+  color: #ff4f9a;
+  margin-bottom: 4px;
+}
 
+h2 {
+  color: #ff7ab6;
+  margin-top: 0;
+}
+
+h3 {
+  margin-top: 24px;
+  color: #ff4f9a;
+}
+
+/* COUNTDOWN */
 #countdown {
-  font-weight: bold;
-  color: #ff69b4;
-  margin: 10px 0;
+  margin: 16px 0;
+  padding: 10px;
+  background: #ffe6f1;
+  border-radius: 14px;
+  color: #d63384;
+  font-weight: 600;
 }
 
+/* BUTTONS */
 button {
-  background: #ff69b4;
   border: none;
+  background: linear-gradient(135deg, #ff5fa2, #ff85c1);
   color: white;
   padding: 12px 18px;
-  border-radius: 20px;
+  border-radius: 999px;
   cursor: pointer;
-  margin: 8px 5px;
+  font-size: 15px;
+  margin: 8px 4px;
+  box-shadow: 0 8px 16px rgba(255, 95, 162, 0.4);
+  transition: all 0.25s ease;
 }
 
-button:hover { background: #ff1493; }
+button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 12px 20px rgba(255, 95, 162, 0.55);
+}
 
 .gift-btn {
-  background: #ff1493;
+  background: linear-gradient(135deg, #ff85c1, #ffc1dc);
+  color: #b1005d;
 }
 
+/* LETTER */
 .letter {
-  margin: 15px 0;
-  text-align: left;
+  margin-top: 16px;
+  background: #fff0f6;
+  border-radius: 16px;
+  padding: 12px;
 }
 
 .letter summary {
   cursor: pointer;
-  font-weight: bold;
-  color: #ff1493;
+  font-weight: 600;
+  color: #ff4f9a;
 }
 
+.letter p {
+  color: #b02a63;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+/* GALLERY */
 .gallery {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* tetap 3 ke samping */
+  gap: 14px; /* jarak diperbesar */
+  margin-top: 16px;
 }
 
 .gallery img {
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  border-radius: 16px;
   object-fit: cover;
-  border-radius: 15px;
+  aspect-ratio: 4 / 5; /* foto lebih tinggi & jelas */
 }
 
-/* Modal Gift */
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* MODAL */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.45);
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 1000;
 }
 
 .modal-content {
   background: white;
-  padding: 25px;
-  border-radius: 20px;
+  padding: 24px;
+  border-radius: 22px;
   text-align: center;
-  max-width: 300px;
+  max-width: 320px;
+  animation: pop 0.4s ease;
 }
 
-/* Hearts + Confetti */
-.heart, .confetti {
+.modal-content h2 {
+  color: #ff4f9a;
+}
+
+.modal-content p {
+  color: #b02a63;
+}
+
+/* HEART FALLING */
+.heart {
   position: fixed;
   top: -10px;
-  animation: fall 4s linear forwards;
+  animation: fall 5s linear;
+  pointer-events: none;
 }
 
+/* CONFETTI */
+.confetti {
+  position: fixed;
+  top: -10px;
+  animation: confettiFall 4s linear;
+  pointer-events: none;
+}
+
+/* ANIMATIONS */
 @keyframes fall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+@keyframes confettiFall {
   to {
     transform: translateY(110vh) rotate(360deg);
     opacity: 0;
+  }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .card {
+    margin: 16px;
+    padding: 20px;
   }
 }
