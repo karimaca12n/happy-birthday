@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Virda 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+  <h1>🎂 Happy Birthday 🎂</h1>
+  <h2>Virda Rizka 💕</h2>
+
+  <div id="countdown"></div>
+
+  <button onclick="playMusic()">Putar Lagu 🎵</button>
+
+  <button class="gift-btn" onclick="openGift()">🎁 Buka Hadiah</button>
+
+  <details class="letter">
+    <summary>💌 Baca Surat</summary>
+    <p>
+       🎂Selamat Ulang Tahun Yang ke-19💗  
+      semoga di ulang tahun ini kamu mendapatkan apa yang kamu inginkan, mendapat kebaikan dimanapu,
+      serta dipermudah segala urusannya, dilancarkan rezekinya, disayang semua orang, dan selalu diberi kesehatan.
+      Maaf ya kalau aku belum bisa kasih yang terbaik buat kamu, tapi aku yakin di ulang tahun kamu kali ini aku bisa jadi yang terbaik buat kamu💕.
+    </p>
+  </details>
+
+  <h3>📸 Kenangan Kita</h3>
+  <div class="gallery">
+    <img src="foto/2.jpeg">
+    <img src="foto/1.jpeg">
+    <img src="foto/3.jpeg">
+  </div>
+</div>
+
+<div id="giftModal" class="modal">
+  <div class="modal-content">
+    <h2>💖 Untuk Virda 💖</h2>
+    <p>Kamu adalah orang hebat yang mampu melawan semua keras dan kotornya dunia. Semua Kamu DiRayakan 🎀</p>
+    <button onclick="closeGift()">Tutup</button>
+  </div>
+</div>
+
+<!-- TEMPAT PLAYER YOUTUBE (WAJIB, DISAMARKAN) -->
+<div id="music" style="display:none;"></div>
+
+<!-- YOUTUBE IFRAME API (WAJIB) -->
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<!-- SCRIPT KAMU -->
+<script src="script.js"></script>
+
+</body>
+</html>
